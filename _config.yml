@@ -1,0 +1,46 @@
+# Setup
+title: NonnoAlex
+url: https://nonnoalex.dev
+paginate: 1
+baseurl: ""
+permalink: pretty
+paginate_path: "/blog/page:num"
+
+# Gems
+plugins:
+  - jekyll-gist
+  - jekyll-paginate
+  - jekyll-seo-tag
+
+# Optimize Jekyll
+exclude:
+  - .editorconfig
+  - .git
+  - .jekyll-cache
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE.md
+  - README.md
+
+sass:
+  sass_dir: _sass
+  style: :compressed
+
+author:
+  name: Alessandro Lo Manto
+
+
+# Custom vars
+version: 3.0.0
+
+# Navbar page list
+nav:
+
+  - title: Blog
+    url: /blog
+
+  - title: Archive
+    url: /blog/archive
+
+  - title: About
+    url: /

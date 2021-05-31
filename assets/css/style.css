@@ -1,0 +1,204 @@
+html,
+body,
+header,
+.view {
+  height: 100%;
+}
+
+@media (max-width: 800px) {
+  html,
+  body,
+  header,
+  .view {
+    height: 120%;
+
+  }
+
+  p 
+{
+   font-size: 14px;  
+}
+}
+
+.gradient-background {
+
+  background: linear-gradient(270deg,#772f1a,#f2a65a);
+  background: #fff; /* Old browsers */
+  background: -moz-linear-gradient(-45deg, #772f1a,#f2a65a 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#772f1a), color-stop(100%,#f2a65a)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(-45deg, #772f1a,#f2a65a 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(-45deg, #772f1a,#f2a65a 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(-45deg, #772f1a,#f2a65a 100%); /* IE10+ */
+  background: linear-gradient(135deg, #772f1a,#f2a65a 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#772f1a', endColorstr='#f2a65a',GradientType=1 );
+
+/* IE6-9 fallback on horizontal gradient */
+ 
+}
+
+.noise:after {
+  background-image: url("https://i.postimg.cc/W4pCBbz0/noise.png");
+  content: "";
+  width: 300%;
+  height: 300%;
+  position: absolute;
+  top: -50%;
+  left: -50%;
+ 
+  animation: noise 1s infinite;
+}
+
+
+@keyframes noise {
+  0% {
+        transform: translate(0)
+    }
+    10% {
+        transform: translate(-5%, -5%)
+    }
+    20% {
+        transform: translate(-10%, 5%)
+    }
+    30% {
+        transform: translate(5%, -10%)
+    }
+    40% {
+        transform: translate(-5%, 15%)
+    }
+    50% {
+        transform: translate(-10%, 5%)
+    }
+    60% {
+        transform: translate(15%)
+    }
+    70% {
+        transform: translateY(10%)
+    }
+    80% {
+        transform: translate(-15%)
+    }
+    90% {
+        transform: translate(10%, 5%)
+    }
+    to {
+        transform: translate(5%)
+    }
+}
+
+a, a > span {
+  position: relative;
+  color: inherit;
+  text-decoration: none;
+  line-height: 24px;
+}
+
+a:hover 
+{
+   color:#FFF; 
+   text-decoration:none; 
+   cursor:pointer;  
+}
+
+/* Grow Rotate */
+.hvr-grow-rotate {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+.hvr-grow-rotate:hover, .hvr-grow-rotate:focus, .hvr-grow-rotate:active {
+  -webkit-transform: scale(1.1) rotate(4deg);
+  transform: scale(1.1) rotate(4deg);
+}
+
+
+.hvr-grow {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+.hvr-grow:hover, .hvr-grow:focus, .hvr-grow:active {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.vl {
+  width: 2px;
+  border-radius: 3px;
+  box-shadow: 3px 3px 5px rgba(0,0,0,0.05);
+  background: rgba(255,255,255,0.3);
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+
+@media screen and (max-width: 800px) {
+  .vl {
+      display: none;
+    }
+}
+
+
+.wrapper {
+  width: 100%;
+  max-width: 600px;
+  margin: 2rem auto;
+  position: relative;
+}
+
+.post-list-subhead {
+  text-transform: uppercase;
+  color: #aaa;
+  border-bottom: 1px solid #eee;
+  padding: 0.4em 0;
+  font-size: 80%;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+}
+
+.post-item {
+  padding: 10px 20px;
+  margin: 20px 0;
+  border-left: 1px solid #EEE;
+  &:hover {
+    background-color: #ddd;
+  }
+}
+
+.post-item-header {
+  border-bottom: 2px solid #000;
+}
+
+.post-item-title {
+  font-size: 2em;
+  color: #222;
+  margin-bottom: 0.2em;
+  font-weight: bold;
+}
+
+.post-item-category {
+  margin: 0 0.1em;
+  padding: 0.3em 1em;
+  color: #fff;
+  background: #000;
+  font-size: 80%;
+  text-decoration: none;
+}
+
+.post-item-more {
+  text-transform: uppercase;
+  border: 1px solid #000;
+  padding: 2px 8px;
+  margin: 0;
+}
