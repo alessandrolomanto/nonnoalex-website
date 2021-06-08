@@ -1,7 +1,7 @@
 FROM jekyll/jekyll as build
 
 RUN mkdir /nonnowebsite
-COPY sites/jasper2/. /nonnowebsite
+COPY . /nonnowebsite
 WORKDIR /nonnowebsite
 
 RUN chmod 644 /nonnowebsite/assets/images/*
