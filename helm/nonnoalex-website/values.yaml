@@ -8,7 +8,7 @@ image:
   repository: localhost:5000/nonnoalex-website
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "1.01"
+  tag: "1.02"
 
 imagePullSecrets: []
 nameOverride: ""
