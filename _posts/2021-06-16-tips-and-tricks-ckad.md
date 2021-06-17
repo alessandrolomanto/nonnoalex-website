@@ -72,24 +72,37 @@ In this article i want to share my experience and give some advise for pass the 
 ## General advice and problems I have addressed
 
 1. Test your webcam and make sure your documents are clearly visible.
-I bought a 1080p webcam but it was a flop because the proctor could not display the identification document numbers,
-I had to switch into the laptop's built-in one before moving on.
+
+    I bought a 1080p webcam but it was a flop because the proctor could not display the identification document numbers,
+    I had to switch into the laptop's built-in one before moving on.
 
 1. Create your browser favorites
-During the exam you have an additional tab to view the official k8s documentation.
-I found it convenient as I followed the courses and mocks, to save the pages and organize them so that I could consult quickly.
+
+    During the exam you have an additional tab to view the official k8s documentation.
+    I found it convenient as I followed the courses and mocks to save the pages and organize them so that I could consult quickly.
 
 1. Always check the namespace and cluster
-For the ckad there are 4 clusters, during the exam they will ask you to switch from one cluster to another as well as from one namespace to another.
+
+    For the ckad there are 4 clusters, during the exam they will ask you to switch from one cluster to another as well as from one namespace to another.
 
 1. Vim `set paste`
-When you copy and paste YAML segments, this could cause weirdly formatted config which could be a real pain during the exam where every second matters. 
-In order to avoid this, turn off auto indent when you paste code. There’s a special “paste” mode.
-Type
-`:set paste`
-Then paste your code. Note that the text in the tooltip now says -- INSERT (paste) --.
-After pasting, turn off the paste-mode, so that auto-indenting when you type works correctly again.
-`:set nopaste`
+
+    When you copy and paste YAML segments, this could cause weirdly formatted config which could be a real pain during the exam where every second matters. 
+    In order to avoid this, turn off auto indent when you paste code. There’s a special “paste” mode.
+    Type
+    <pre class="highlight">
+    <code class="language-bash" data-lang="bash">
+        :set paste
+    </code>
+    </pre>
+
+    Then paste your code. Note that the text in the tooltip now says -- INSERT (paste) --.
+    After pasting, turn off the paste-mode, so that auto-indenting when you type works correctly again.
+    <pre class="highlight">
+        <code class="language-bash" data-lang="bash">
+            :set nopaste
+        </code>
+    </pre>
 
 1. Mark questions to revisit later
 Check the percentage value of the question, you can spend about 6 minutes.
