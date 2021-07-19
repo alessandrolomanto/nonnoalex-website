@@ -50,6 +50,7 @@ jobs:
             registry.nonnoalex.dev/nonnoalex/nonnoalex-website:${{env.VERSION_TAG}}
           build-args: |
             ${{steps.version_step.outputs.version}}
+            VERSION_TAG=${{ env.VERSION_TAG }}
       #-
       #  name: Build and push
       #  id: docker_build
