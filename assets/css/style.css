@@ -2,23 +2,18 @@ html,
 body,
 header,
 .view {
-  height: 105%;
+  height: 100%;
 }
 
 @media (max-width: 800px) {
-  html,
-  body,
-  header,
-  .view {
-    height: 120%;
 
-  }
 
   p 
 {
    font-size: 14px;  
 }
 }
+
 
 .gradient-background {
 
