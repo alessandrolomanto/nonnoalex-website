@@ -1,50 +1,55 @@
-name: ci
-
-on:
-  push:
-    branches:
-      - 'master'
-    tags:
-      — '*'
+name: pipeline
+on: push
 jobs:
-  docker:
+  test:
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags')
     steps:
-      -
-        uses: actions/checkout@v2
-        name: Set env
-      -
-        name: Docker meta
-        id: meta
-        uses: crazy-max/ghaction-docker-meta@v2
-        with:
-          images: registry.nonnoalex.dev/nonnoalex/nonnoalex-website
-          tags: |
-            type=raw,value=latest,enable=${{ endsWith(GitHub.ref, 'master') }}
-            type=ref,event=tag
-          flavor: |
-            latest=false
-      -
-        name: Set up QEMU
+      - uses: actions/checkout@v2
+      - name: Run  Tests
+        run: |
+            echo "Fake test"
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: test
+    if: startsWith(github.ref, 'refs/tags')
+    steps:
+      - name: Extract Version
+        id: version_step
+        run: |
+          echo "##[set-output name=version;]VERSION=${GITHUB_REF#$"refs/tags/v"}"
+          echo "##[set-output name=version_tag;]registry.nonnoalex.dev/nonnoalex/nonnoalex-website:${GITHUB_REF#$"refs/tags/v"}"
+          echo "##[set-output name=latest_tag;]registry.nonnoalex.dev/nonnoalex/nonnoalex-website:latest"
+      - name: Print Version
+        run: |
+          echo ${{steps.version_step.outputs.version_tag}}
+          echo ${{steps.version_step.outputs.latest_tag}}
+      - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
-      -
-        name: Set up Docker Buildx
+
+      - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-      -
-        name: Login to DockerHub
-        uses: docker/login-action@v1 
+
+      - name: Login to DockerHub
+        uses: docker/login-action@v1
         with:
           registry: registry.nonnoalex.dev
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_TOKEN }}
-      -
-        name: Build and push
+
+      - name: PrepareReg Names
+        id: read-docker-image-identifiers
+        run: |
+          echo VERSION_TAG=$(echo ${{ steps.version_step.outputs.version_tag }} | tr '[:upper:]' '[:lower:]') >> $GITHUB_ENV
+          echo LASTEST_TAG=$(echo ${{ steps.version_step.outputs.latest_tag  }} | tr '[:upper:]' '[:lower:]') >> $GITHUB_ENV
+      - name: Build and push
         id: docker_build
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
-      -
-        name: Image digest
-        run: echo ${{ steps.docker_build.outputs.digest }}
+          tags: |
+            ${{env.VERSION_TAG}}
+            ${{env.LASTEST_TAG}}
+          build-args: |
+            ${{steps.version_step.outputs.version}}

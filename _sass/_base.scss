@@ -17,6 +17,17 @@ body {
       -ms-text-size-adjust: 100%;
 }
 
+body::-webkit-scrollbar {
+  width: 12px;
+  background: #212529;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #f2a65a;
+  border: 3px solid #212529;
+  border-radius: 10px;
+}
+
+
 // No `:visited` state is required by default (browsers will use `a`)
 a {
   color: var(--link-color);
