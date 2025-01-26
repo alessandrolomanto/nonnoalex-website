@@ -18,14 +18,14 @@ metadata:
   {{- end }}
 spec:
   entryPoints:
-    - websecure
+    - web
   routes:
     - match: Host(`nonnoalex.dev`)
       kind: Rule
       services:
         - name: {{ $fullName }}
           port: {{ $svcPort }}
-  tls:
-    certResolver: letsencrypt
+            #  tls:
+            # certResolver: letsencrypt
 
 {{- end }}
