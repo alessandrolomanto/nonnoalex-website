@@ -11,7 +11,7 @@ title: Blog
   </header>
 
   <div class="posts-list">
-    {% for post in paginator.posts %}
+    {% for post in site.posts %}
     <article class="post-preview">
       <a href="{{ post.url | relative_url }}" class="post-preview-link">
         <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %d, %Y" }}</time>
@@ -22,13 +22,4 @@ title: Blog
     </article>
     {% endfor %}
   </div>
-
-  <nav class="pagination">
-    {% if paginator.next_page %}
-      <a class="pagination-link" href="{{ paginator.next_page_path | relative_url }}">← Older posts</a>
-    {% endif %}
-    {% if paginator.previous_page %}
-      <a class="pagination-link" href="{{ paginator.previous_page_path | relative_url }}">Newer posts →</a>
-    {% endif %}
-  </nav>
 </div>

@@ -919,6 +919,65 @@ body {
   color: var(--color-accent);
 }
 
+/* Archive Styles */
+.archive-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.archive-group {
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: var(--space-lg);
+}
+
+.archive-group:last-child {
+  border-bottom: none;
+}
+
+.archive-month {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  margin-bottom: var(--space-md);
+}
+
+.archive-posts {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.archive-posts li {
+  margin-bottom: var(--space-xs);
+}
+
+.archive-posts a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-sm);
+  text-decoration: none;
+  color: var(--color-text-primary);
+  border-radius: var(--border-radius-sm);
+  transition: all var(--transition-base);
+}
+
+.archive-posts a:hover {
+  background: var(--color-bg-card);
+  padding-left: var(--space-md);
+}
+
+.archive-title {
+  flex: 1;
+}
+
+.archive-date {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
 /* ==========================================================================
    Post Page Styles
    ========================================================================== */
