@@ -1,136 +1,453 @@
-
-
-<!-- Main navigation -->
-<header>
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-bg">
+    <div class="hero-gradient"></div>
+    <div class="hero-grid"></div>
+  </div>
   
-  <!-- Full Page Intro -->
-  <div class="view gradient-background">
-  <div class="noise"></div>
-    <!-- Mask & flexbox options-->
-    <div class="mask">
-      <!-- Content -->
- <div class="container my-5 py-5">
+  <!-- Navigation -->
+  <nav class="nav">
+    <a href="/" class="nav-logo">
+      <img src="/assets/images/personal-logo.png" alt="Alessandro Lo Manto" />
+    </a>
+    <div class="nav-links">
+      <a href="/blog" class="nav-link">Blog</a>
+      <a href="https://github.com/alessandrolomanto" target="_blank" rel="noopener" class="nav-link">GitHub</a>
+      <a href="https://www.linkedin.com/in/alessandro-lo-manto-8aab34a9/" target="_blank" rel="noopener" class="nav-link nav-link--primary">LinkedIn</a>
+    </div>
+  </nav>
 
+  <!-- Hero Content -->
+  <div class="hero-content">
+    <p class="hero-label">Platform Engineer</p>
+    <h1 class="hero-title">
+      I build Internal Developer Platforms<br>
+      <span class="hero-highlight">that help teams ship faster and sleep better.</span>
+    </h1>
+    <p class="hero-subtitle">
+      DevEx · Cloud-Native · Reliability · Automation
+    </p>
+  </div>
 
-  <!--Section: Content-->
-  <section class="dark-grey-text text-center">
-    
+  <!-- Scroll Indicator -->
+  <a href="#what-i-solve" class="scroll-hint">
+    <span>scroll</span>
+    <div class="scroll-line"></div>
+  </a>
+</section>
 
-    <div class="row align-items-center h-100 mx-lg-5 mx-md-3">
-      <div class="col-md-6 mb-4">
-        
-                <img src="assets/images/personal-logo.png" class="img-fluid wow fadeIn " data-wow-delay="0.5s" alt="Responsive image">
+<!-- Services Section -->
+<section id="what-i-solve" class="section section--dark">
+  <div class="container">
+    <header class="section-header">
+      <p class="section-label">Services</p>
+      <h2 class="section-title">Problems I tackle every day</h2>
+      <p class="section-subtitle">I build foundations that help development teams ship faster and safer.</p>
+    </header>
 
-              <div class="container">
+    <div class="services-grid">
+      <article class="service-card" data-animate>
+        <div class="service-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/>
+          </svg>
+        </div>
+        <h3 class="service-title">Cloud Architecture</h3>
+        <p class="service-desc">Secure and scalable AWS, GCP, and Azure setups tailored to your needs.</p>
+      </article>
 
-              <!-- Grid row-->
-              <div class="row align-items-center py-5">
+      <article class="service-card" data-animate>
+        <div class="service-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="3" y="3" width="7" height="7" rx="1"/>
+            <rect x="14" y="3" width="7" height="7" rx="1"/>
+            <rect x="3" y="14" width="7" height="7" rx="1"/>
+            <rect x="14" y="14" width="7" height="7" rx="1"/>
+          </svg>
+        </div>
+        <h3 class="service-title">Kubernetes & Containers</h3>
+        <p class="service-desc">Enterprise-grade K8s migration and management for mission-critical workloads.</p>
+      </article>
 
-                <!-- Grid column -->
+      <article class="service-card" data-animate>
+        <div class="service-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <path d="m10 13-2 2 2 2"/>
+            <path d="m14 17 2-2-2-2"/>
+          </svg>
+        </div>
+        <h3 class="service-title">IaC & CI/CD</h3>
+        <p class="service-desc">Infrastructure as Code with Terraform and automated pipelines for zero-drift deploys.</p>
+      </article>
 
-                <div class="col-lg-6 col-md-8 col-sm-12 d-flex justify-content-center text-cover-white">
-                </div>
+      <article class="service-card" data-animate>
+        <div class="service-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M3 3v18h18"/>
+            <path d="m19 9-5 5-4-4-3 3"/>
+          </svg>
+        </div>
+        <h3 class="service-title">Observability</h3>
+        <p class="service-desc">Full-stack visibility with Prometheus, Grafana, Datadog, and ELK stacks.</p>
+      </article>
 
-                <div class="col-lg-6 col-md-4 col-sm-12 d-flex justify-content-center">
+      <article class="service-card" data-animate>
+        <div class="service-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="m9 12 2 2 4-4"/>
+          </svg>
+        </div>
+        <h3 class="service-title">Security & Access</h3>
+        <p class="service-desc">Zero-trust infrastructure with Teleport, Infisical, and security-by-design practices.</p>
+      </article>
 
+      <article class="service-card" data-animate>
+        <div class="service-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
+            <path d="M2 12h20"/>
+          </svg>
+        </div>
+        <h3 class="service-title">Developer Experience</h3>
+        <p class="service-desc">Internal Developer Platforms with self-service portals and golden paths.</p>
+      </article>
+    </div>
+  </div>
+</section>
 
-                  <div class="mb-5 flex-center">
-
-                    <!-- Github -->
-                    <a class="button hvr-grow-rotate" target="_blank" href="https://github.com/alessandrolomanto">
-                      <i class="fab fa-github fa-lg white-text mr-md-5 mr-2"> </i>
-                    </a>
-                    <!-- Twitter -->
-                    <a class="button hvr-grow-rotate" target="_blank" href="https://twitter.com/AlexLoManto">
-                      <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-2 "> </i>
-                    </a>
-                    <!--Linkedin -->
-                    <a  class="button hvr-grow-rotate" target="_blank" href="https://www.linkedin.com/in/alessandro-lo-manto-8aab34a9/">
-                      <i class="fab fa-linkedin-in fa-lg white-text mr-md-5 mr-2 "> </i>
-                    </a>
-                  </div>
-
-                </div>
-                <!-- Grid column -->
-
-              </div>
-              <!-- Grid row-->
-
-            </div>
-
-     	</div>
-     	<div class="col-md-6 mb-4">
-        
-        <div class="container h-100 white-text text-justify">
-            
-            <h1 >I'm Alessandro</h1>
-            <br>
-            <p class="h5-responsive">
-
-            Always passionate about the ICT world and everything related to it. The discovery of the <strong>DevOps Movement</strong>, even more for the continuous process of learning and above all sharing <strong>OpenSource</strong>, is reflected in my professional development trying to bring my enthusiasm for technology through communication and sharing.<br><br>
-            As a <strong>DevOps Engineer</strong>, I started with cultivating the <strong>DevOps Culture</strong> when we moved from Monolith to Microservice Implementation. Further automated the process end-to-end. Right from Building the code <strong>(CI)</strong> to deploying it to different enviornment <strong>(CD)</strong>. Recently started creating Infrastructure with the help of code <strong>(IAC)</strong>.
-            </p><br>
-            
-            <div class="row justify-content-md-center">
-              
-              <div class="col-3 col-md-3 col-sm-3">
-                <a href="https://www.credly.com/badges/074fd766-99d4-4452-9b92-6729a633b10c"><img src="assets/images/cka_from_cncfsite__281_29.png" class="img-fluid wow fadeIn hvr-grow-rotate" width="100" data-wow-delay="0.5s" alt="Responsive image"></a>
-              </div>
-              <div class="col-3 col-md-3 col-sm-3">
-                <a href="https://www.credly.com/badges/1887bd03-cd23-4fee-ba03-e3d81852878e"><img src="assets/images/ckad_from_cncfsite.png" class="img-fluid wow fadeIn hvr-grow-rotate" width="100" data-wow-delay="0.5s" alt="Responsive image"></a>
-              </div>
-              <div class="col-3 col-md-3 col-sm-3">
-                <a href="https://www.credly.com/badges/7827e3d4-05a7-4770-9936-2e1739639b14"><img src="assets/images/kubernetes-security-specialist-logo2.png" class="img-fluid wow fadeIn hvr-grow-rotate" width="100" data-wow-delay="0.5s" alt="Responsive image"></a>
-              </div>
-            </div>
-            <div class="row justify-content-md-center">
-              <div class="col-3 col-md-3 col-sm-3">
-                <a href="https://www.credly.com/badges/c866e855-83a3-4d34-846b-6c93fe759ea5"><img src="assets/images/Oracle_Associates_Badge__1_.png" class="img-fluid wow fadeIn hvr-grow-rotate" width="100" data-wow-delay="0.5s" alt="Responsive image"></a>
-                 
-              </div>
-              <div class="col-3 col-md-3 col-sm-3">
-                <a href="https://www.credly.com/badges/0d4ad9c7-83e2-473b-8802-2d96ae5d8d87/public_url"><img src="assets/images/hashicorp-certified-terraform-associate.png" class="img-fluid wow fadeIn hvr-grow-rotate" width="100" data-wow-delay="0.5s" alt="Responsive image"></a>
-              </div>
-            </div>
-
-
-
-            
-            <h5 class="h5-responsive mt-3">
-            <strong>Current:</strong> <a target="_blank" href="https://sighup.io"><u>SIGHUP</u></a>
-            </h5>
-            <hr>
-            <h2>Latest Articles</h2>
-            <ul>
-            {% for post in site.posts  limit:3  %}
-           <li><a href="{{ post.url }}">{{ post.title }}</a></li>
-          {% endfor %}
-          </ul>
-
- 
-             <a href="/blog/archive">See all posts</a> 
-      
-            </div>
+<!-- Web3 Section -->
+<section class="section section--gradient">
+  <div class="container">
+    <div class="web3-header">
+      <div class="web3-header-content">
+        <p class="section-label"><span class="label-dot"></span> Protocol Infrastructure</p>
+        <h2 class="section-title">Web3 & Validator Expertise</h2>
+        <p class="section-subtitle">Specialized node operations and infrastructure for high-performance blockchain ecosystems.</p>
+      </div>
+      <div class="protocol-badges">
+        <span class="protocol-badge">
+          <img src="https://www.vectorlogo.zone/logos/solana/solana-icon.svg" alt="Solana" />
+          Solana
+        </span>
+        <span class="protocol-badge">
+          <img src="https://cryptologos.cc/logos/cosmos-atom-logo.svg" alt="Cosmos" />
+          Cosmos
+        </span>
       </div>
     </div>
 
-  </section>
-  <!--Section: Content-->
+    <div class="web3-grid">
+      <article class="web3-card" data-animate>
+        <div class="web3-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="3"/>
+            <circle cx="19" cy="5" r="2"/>
+            <circle cx="5" cy="5" r="2"/>
+            <circle cx="19" cy="19" r="2"/>
+            <circle cx="5" cy="19" r="2"/>
+            <path d="M12 9V5.5"/>
+            <path d="m14.5 10 3-2.5"/>
+            <path d="m9.5 10-3-2.5"/>
+            <path d="M12 15v3.5"/>
+            <path d="m14.5 14 3 2.5"/>
+            <path d="m9.5 14-3 2.5"/>
+          </svg>
+        </div>
+        <h3 class="web3-title">RPC Infrastructure</h3>
+        <p class="web3-desc">High-throughput, low-latency RPC endpoints optimized for heavy read/write loads.</p>
+      </article>
 
+      <article class="web3-card" data-animate>
+        <div class="web3-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <h3 class="web3-title">Validator Operations</h3>
+        <p class="web3-desc">Reliable validator setups with secure key management and 24/7 monitoring.</p>
+      </article>
 
-</div>
+      <article class="web3-card" data-animate>
+        <div class="web3-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M8 3H5a2 2 0 0 0-2 2v3"/>
+            <path d="M21 8V5a2 2 0 0 0-2-2h-3"/>
+            <path d="M3 16v3a2 2 0 0 0 2 2h3"/>
+            <path d="M16 21h3a2 2 0 0 0 2-2v-3"/>
+            <path d="M12 12m-4 0a4 4 0 1 0 8 0 4 4 0 1 0-8 0"/>
+          </svg>
+        </div>
+        <h3 class="web3-title">Testnet Orchestration</h3>
+        <p class="web3-desc">Ephemeral and persistent testnet environments for protocol upgrades with automated faucets.</p>
+      </article>
     </div>
-    <!-- Mask & flexbox options-->
   </div>
-  <!-- Full Page Intro -->
+</section>
+
+<!-- Tech Stack Section -->
+<section class="section section--gradient">
+  <div class="container">
+    <header class="section-header">
+      <p class="section-label">Tech Stack</p>
+      <h2 class="section-title">Tools I work with</h2>
+    </header>
+
+    <!-- Logo Slider -->
+    <div class="logo-slider">
+      <div class="logo-track">
+        <!-- First set -->
+        <div class="logo-item">
+          <img src="https://www.vectorlogo.zone/logos/kubernetes/kubernetes-icon.svg" alt="Kubernetes" />
+          <span>Kubernetes</span>
+        </div>
+        <div class="logo-item">
+          <img src="https://www.vectorlogo.zone/logos/docker/docker-icon.svg" alt="Docker" />
+          <span>Docker</span>
+        </div>
+        <div class="logo-item">
+          <img src="https://www.vectorlogo.zone/logos/terraformio/terraformio-icon.svg" alt="Terraform" />
+          <span>Terraform</span>
+        </div>
+        <div class="logo-item">
+          <img src="https://www.vectorlogo.zone/logos/amazon_aws/amazon_aws-icon.svg" alt="AWS" />
+          <span>AWS</span>
+        </div>
+        <div class="logo-item">
+          <img src="https://www.vectorlogo.zone/logos/google_cloud/google_cloud-icon.svg" alt="GCP" />
+          <span>GCP</span>
+        </div>
+        <div class="logo-item">
+          <img src="https://www.vectorlogo.zone/logos/argaborisov/argaborisov-icon.svg" alt="ArgoCD" />
+          <span>ArgoCD</span>
+        </div>
+        <div class="logo-item">
+          <img src="https://www.vectorlogo.zone/logos/helmsh/helmsh-icon.svg" alt="Helm" />
+          <span>Helm</span>
+        </div>
+        <div class="logo-item">
+          <img src="https://www.vectorlogo.zone/logos/prometheusio/prometheusio-icon.svg" alt="Prometheus" />
+          <span>Prometheus</span>
+        </div>
+        <div class="logo-item">
+          <img src="https://www.vectorlogo.zone/logos/grafana/grafana-icon.svg" alt="Grafana" />
+          <span>Grafana</span>
+        </div>
+        <div class="logo-item">
+          <img src="https://www.vectorlogo.zone/logos/databorisov/databorisov-icon.svg" alt="Datadog" />
+          <span>Datadog</span>
+        </div>
+        <div class="logo-item">
+          <img src="https://www.vectorlogo.zone/logos/gitlab/gitlab-icon.svg" alt="GitLab" />
+          <span>GitLab CI</span>
+        </div>
+        <div class="logo-item">
+          <img src="https://www.vectorlogo.zone/logos/github/github-icon.svg" alt="GitHub Actions" />
+          <span>GitHub</span>
+        </div>
+        <div class="logo-item">
+          <img src="https://www.vectorlogo.zone/logos/ansible/ansible-icon.svg" alt="Ansible" />
+          <span>Ansible</span>
+        </div>
+        <div class="logo-item">
+          <img src="https://www.vectorlogo.zone/logos/vaborisov/vaborisov-icon.svg" alt="Vault" />
+          <span>Vault</span>
+        </div>
+        <div class="logo-item">
+          <img src="https://www.vectorlogo.zone/logos/golang/golang-icon.svg" alt="Go" />
+          <span>Go</span>
+        </div>
+        <div class="logo-item">
+          <img src="https://www.vectorlogo.zone/logos/python/python-icon.svg" alt="Python" />
+          <span>Python</span>
+        </div>
+        <!-- Duplicate set for seamless loop -->
+        <div class="logo-item">
+          <img src="https://www.vectorlogo.zone/logos/kubernetes/kubernetes-icon.svg" alt="Kubernetes" />
+          <span>Kubernetes</span>
+        </div>
+        <div class="logo-item">
+          <img src="https://www.vectorlogo.zone/logos/docker/docker-icon.svg" alt="Docker" />
+          <span>Docker</span>
+        </div>
+        <div class="logo-item">
+          <img src="https://www.vectorlogo.zone/logos/terraformio/terraformio-icon.svg" alt="Terraform" />
+          <span>Terraform</span>
+        </div>
+        <div class="logo-item">
+          <img src="https://www.vectorlogo.zone/logos/amazon_aws/amazon_aws-icon.svg" alt="AWS" />
+          <span>AWS</span>
+        </div>
+        <div class="logo-item">
+          <img src="https://www.vectorlogo.zone/logos/google_cloud/google_cloud-icon.svg" alt="GCP" />
+          <span>GCP</span>
+        </div>
+        <div class="logo-item">
+          <img src="https://www.vectorlogo.zone/logos/argaborisov/argaborisov-icon.svg" alt="ArgoCD" />
+          <span>ArgoCD</span>
+        </div>
+        <div class="logo-item">
+          <img src="https://www.vectorlogo.zone/logos/helmsh/helmsh-icon.svg" alt="Helm" />
+          <span>Helm</span>
+        </div>
+        <div class="logo-item">
+          <img src="https://www.vectorlogo.zone/logos/prometheusio/prometheusio-icon.svg" alt="Prometheus" />
+          <span>Prometheus</span>
+        </div>
+        <div class="logo-item">
+          <img src="https://www.vectorlogo.zone/logos/grafana/grafana-icon.svg" alt="Grafana" />
+          <span>Grafana</span>
+        </div>
+        <div class="logo-item">
+          <img src="https://www.vectorlogo.zone/logos/databorisov/databorisov-icon.svg" alt="Datadog" />
+          <span>Datadog</span>
+        </div>
+        <div class="logo-item">
+          <img src="https://www.vectorlogo.zone/logos/gitlab/gitlab-icon.svg" alt="GitLab" />
+          <span>GitLab CI</span>
+        </div>
+        <div class="logo-item">
+          <img src="https://www.vectorlogo.zone/logos/github/github-icon.svg" alt="GitHub Actions" />
+          <span>GitHub</span>
+        </div>
+        <div class="logo-item">
+          <img src="https://www.vectorlogo.zone/logos/ansible/ansible-icon.svg" alt="Ansible" />
+          <span>Ansible</span>
+        </div>
+        <div class="logo-item">
+          <img src="https://www.vectorlogo.zone/logos/vaborisov/vaborisov-icon.svg" alt="Vault" />
+          <span>Vault</span>
+        </div>
+        <div class="logo-item">
+          <img src="https://www.vectorlogo.zone/logos/golang/golang-icon.svg" alt="Go" />
+          <span>Go</span>
+        </div>
+        <div class="logo-item">
+          <img src="https://www.vectorlogo.zone/logos/python/python-icon.svg" alt="Python" />
+          <span>Python</span>
+        </div>
+      </div>
+    </div>
+            </div>
+</section>
+
+<!-- Certifications Section -->
+<section class="section section--dark">
+  <div class="container">
+    <header class="section-header section-header--compact">
+      <p class="section-label">Certifications</p>
+      <h2 class="section-title">Validated expertise</h2>
+    </header>
+
+    <div class="certs-row">
+      <a href="https://www.credly.com/badges/074fd766-99d4-4452-9b92-6729a633b10c" target="_blank" rel="noopener" class="cert" data-animate>
+        <img src="/assets/images/cka_from_cncfsite__281_29.png" alt="CKA" loading="lazy" />
+        <div class="cert-info">
+          <span class="cert-name">CKA</span>
+          <span class="cert-full">Kubernetes Administrator</span>
+        </div>
+      </a>
+      <a href="https://www.credly.com/badges/1887bd03-cd23-4fee-ba03-e3d81852878e" target="_blank" rel="noopener" class="cert" data-animate>
+        <img src="/assets/images/ckad_from_cncfsite.png" alt="CKAD" loading="lazy" />
+        <div class="cert-info">
+          <span class="cert-name">CKAD</span>
+          <span class="cert-full">Kubernetes Developer</span>
+        </div>
+      </a>
+      <a href="https://www.credly.com/badges/7827e3d4-05a7-4770-9936-2e1739639b14" target="_blank" rel="noopener" class="cert" data-animate>
+        <img src="/assets/images/kubernetes-security-specialist-logo2.png" alt="CKS" loading="lazy" />
+        <div class="cert-info">
+          <span class="cert-name">CKS</span>
+          <span class="cert-full">Kubernetes Security</span>
+        </div>
+      </a>
+      <a href="https://www.credly.com/badges/0d4ad9c7-83e2-473b-8802-2d96ae5d8d87/public_url" target="_blank" rel="noopener" class="cert" data-animate>
+        <img src="/assets/images/hashicorp-certified-terraform-associate.png" alt="Terraform" loading="lazy" />
+        <div class="cert-info">
+          <span class="cert-name">Terraform</span>
+          <span class="cert-full">HashiCorp Associate</span>
+        </div>
+      </a>
+      <a href="https://www.credly.com/badges/c866e855-83a3-4d34-846b-6c93fe759ea5" target="_blank" rel="noopener" class="cert" data-animate>
+        <img src="/assets/images/Oracle_Associates_Badge__1_.png" alt="OCA" loading="lazy" />
+        <div class="cert-info">
+          <span class="cert-name">OCA</span>
+          <span class="cert-full">Oracle Associate</span>
+              </div>
+      </a>
+              </div>
+            </div>
+</section>
+
+<!-- Blog Section -->
+<section class="section section--gradient">
+  <div class="container">
+    <header class="section-header">
+      <p class="section-label">Latest Thinking</p>
+      <h2 class="section-title">From my blog</h2>
+    </header>
+
+    <div class="blog-grid">
+      {% for post in site.posts limit:3 %}
+      <article class="blog-card" data-animate>
+        <a href="{{ post.url }}" class="blog-card-link">
+          <time class="blog-date">{{ post.date | date: "%b %d, %Y" }}</time>
+          <h3 class="blog-title">{{ post.title }}</h3>
+          <p class="blog-excerpt">{{ post.excerpt | strip_html | truncate: 120 }}</p>
+          <span class="blog-read">Read article →</span>
+        </a>
+      </article>
+          {% endfor %}
+    </div>
+
+    <div class="section-cta">
+      <a href="/blog/archive" class="btn btn--outline">View all articles</a>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section class="section section--gradient section--cta">
+  <div class="container container--narrow">
+    <h2 class="cta-title">Let's build something together</h2>
+    <p class="cta-text">Whether you're looking for a Platform Engineer or just want to chat about cloud-native and DevEx, reach out.</p>
+    <div class="cta-links">
+      <a href="https://www.linkedin.com/in/alessandro-lo-manto-8aab34a9/" target="_blank" rel="noopener" class="btn btn--primary">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+        </svg>
+        Connect on LinkedIn
+      </a>
+      <a href="https://github.com/alessandrolomanto" target="_blank" rel="noopener" class="btn btn--outline">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+        </svg>
+        View my projects
+      </a>
+    </div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <p class="footer-copy">&copy; {{ site.time | date: '%Y' }} Alessandro Lo Manto. Platform Engineer.</p>
+      <p class="footer-meta">Built with Jekyll, hosted on Kubernetes. Obviously.</p>
+    </div>
+  </div>
+</footer>
   
-</header>
-<!-- Main navigation -->
+<!-- Cookie Consent -->
 <script type="text/javascript">
 var _iub = _iub || [];
-_iub.csConfiguration = {"consentOnContinuedBrowsing":false,"whitelabel":false,"lang":"it","siteId":1985339,"cookiePolicyId":91034975,"cookiePolicyUrl":"https://www.iubenda.com/privacy-policy/91034975", "banner":{ "acceptButtonDisplay":true,"customizeButtonDisplay":true,"position":"float-top-center" }};
+_iub.csConfiguration = {"consentOnContinuedBrowsing":false,"whitelabel":false,"lang":"en","siteId":1985339,"cookiePolicyId":91034975,"cookiePolicyUrl":"https://www.iubenda.com/privacy-policy/91034975", "banner":{ "acceptButtonDisplay":true,"customizeButtonDisplay":true,"position":"float-top-center" }};
 </script>
 <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
 
+<!-- App JS -->
+<script src="/assets/js/app.js"></script>
 </body>
-

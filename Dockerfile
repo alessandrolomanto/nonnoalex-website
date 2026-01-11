@@ -1,4 +1,4 @@
-FROM jekyll/jekyll as build
+FROM jekyll/jekyll AS build
 
 RUN mkdir /nonnowebsite
 COPY . /nonnowebsite
