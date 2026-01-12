@@ -1,10 +1,5 @@
-
-  <meta property="og:title" content="DevOps Blog">
-  <meta property="og:description" content="Offering tour packages for individuals or groups.">
-  <meta property="og:image" content="http://euro-travel-example.com/thumbnail.jpg">
-  <meta property="og:url" content="http://euro-travel-example.com/index.htm">
-  <meta name="twitter:card" content="summary_large_image">
-  
-  
-  <meta property="og:site_name" content="European Travel, Inc.">
-  <meta name="twitter:image:alt" content="Alt text for image">
+  <meta property="og:title" content="{{ page.title | default: site.title }}">
+  <meta property="og:description" content="{{ page.excerpt | default: site.description | strip_html | truncate: 160 }}">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <meta name="author" content="{{ site.author.name }}">

@@ -150,9 +150,63 @@
   }
 
   /**
+   * Text scramble effect for hero label
+   */
+  function initTextScramble() {
+    const scrambleElements = document.querySelectorAll('[data-scramble]');
+    
+    scrambleElements.forEach(el => {
+      const originalText = el.textContent;
+      const chars = '!@#$%^&*()_+-=[]{}|;:,.<>?/~`01';
+      let frame = 0;
+      const totalFrames = 30;
+      
+      // Start with scrambled text
+      el.textContent = originalText.split('').map(() => 
+        chars[Math.floor(Math.random() * chars.length)]
+      ).join('');
+      
+      function scramble() {
+        const progress = frame / totalFrames;
+        
+        el.textContent = originalText.split('').map((char, index) => {
+          if (char === ' ') return ' ';
+          
+          // Progressive reveal from left to right
+          const charProgress = index / originalText.length;
+          if (progress > charProgress + 0.3) {
+            return char;
+          }
+          
+          return chars[Math.floor(Math.random() * chars.length)];
+        }).join('');
+        
+        frame++;
+        
+        if (frame <= totalFrames) {
+          requestAnimationFrame(scramble);
+        } else {
+          el.textContent = originalText;
+          // Remove cursor after scramble completes
+          setTimeout(() => {
+            el.style.setProperty('--cursor-opacity', '0');
+            el.classList.add('scramble-complete');
+          }, 500);
+        }
+      }
+      
+      // Start scramble after a short delay
+      setTimeout(() => {
+        scramble();
+      }, 300);
+    });
+  }
+
+  /**
    * Initialize everything when DOM is ready
    */
   function init() {
+    initTextScramble();
     initScrollAnimations();
     initSmoothScroll();
     initHeroParallax();

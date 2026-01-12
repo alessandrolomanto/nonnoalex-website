@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Archive
+permalink: /blog/archive/
 ---
 
 <div class="blog-page">
