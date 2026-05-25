@@ -2,25 +2,45 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>{{ page.title }} | {{ site.author.name }}</title>
+  <title>{% if page.title %}{{ page.title }} | {{ site.author.name }}{% else %}{{ site.author.name }}{% endif %}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | truncate: 160 }}">
   
   {% include seo.html %}
 
-  <!-- Google Fonts -->
+  <!-- Fonts: Figtree + IBM Plex Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   
   <link rel="shortcut icon" href="{{ '/assets/images/personal-logo.png' | relative_url }}">
   
-  <!-- Custom styles -->
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 
 <body>
-  {{ content }}
+  <!-- Navigation -->
+  <nav class="nav">
+    <a href="/" class="nav-name">Alessandro Lo Manto</a>
+    <div class="nav-links">
+      <a href="/blog" class="nav-link">Blog</a>
+      <a href="https://github.com/alessandrolomanto" target="_blank" rel="noopener" class="nav-link">GitHub</a>
+      <a href="https://www.linkedin.com/in/alessandro-lo-manto-8aab34a9/" target="_blank" rel="noopener" class="nav-link">LinkedIn</a>
+    </div>
+  </nav>
+
+  <main>
+    {{ content }}
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <span>&copy; {{ site.time | date: '%Y' }} Alessandro Lo Manto</span>
+      <span class="footer-sep">/</span>
+      <span>Jekyll + Kubernetes, obviously</span>
+    </div>
+  </footer>
 
   <!-- Cookie Consent -->
   <script type="text/javascript">

@@ -1,6 +1,4 @@
 // Body resets
-//
-// Update the foundational and global aspects of the page.
 
 * {
   box-sizing: border-box;
@@ -17,24 +15,11 @@ body {
       -ms-text-size-adjust: 100%;
 }
 
-body::-webkit-scrollbar {
-  width: 8px;
-  background: var(--body-bg);
-}
-body::-webkit-scrollbar-thumb {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
-}
-body::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-}
-
-
-// No `:visited` state is required by default (browsers will use `a`)
 a {
   color: var(--link-color);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
 
-  // `:focus` is linked to `:hover` for basic accessibility
   &:hover,
   &:focus {
     color: var(--link-hover-color);

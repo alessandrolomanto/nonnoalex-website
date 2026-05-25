@@ -5,23 +5,19 @@ permalink: /blog/
 ---
 
 <div class="blog-page">
-  <header class="blog-header">
-    <a href="/" class="back-link">← Back to portfolio</a>
+  <header class="page-header">
     <h1>Blog</h1>
-    <p>Thoughts on platform engineering, DevOps, and cloud-native.</p>
+    <p>Notes on running things in production.</p>
   </header>
 
-  <div class="posts-list">
+  <ul class="post-list">
     {% for post in site.posts %}
-    <article class="post-preview">
-      <a href="{{ post.url | relative_url }}" class="post-preview-link">
-        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %d, %Y" }}</time>
-        <h2>{{ post.title }}</h2>
-        <p>{{ post.excerpt | strip_html | truncate: 160 }}</p>
-        <span class="read-more">Read article →</span>
+    <li>
+      <a href="{{ post.url | relative_url }}" class="post-row">
+        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y.%m.%d" }}</time>
+        <span>{{ post.title }}</span>
       </a>
-    </article>
+    </li>
     {% endfor %}
-  </div>
+  </ul>
 </div>
-
