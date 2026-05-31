@@ -29,6 +29,11 @@ sass:
 author:
   name: Alessandro Lo Manto
 
+description: "Infra & Kubernetes engineer. Notes on running things in production."
+
+twitter:
+  username: alexlomanto
+
 
 # Custom vars
 version: 3.0.0

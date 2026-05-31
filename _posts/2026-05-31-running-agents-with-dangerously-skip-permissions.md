@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Run Claude Code safely with --dangerously-skip-permissions in k8s agents sandbox
+image: /assets/images/dangerously-skip-permissions.png
 ---
 
 Claude Code has a flag called `--dangerously-skip-permissions`, and it does exactly what the name says. The agent stops asking before it runs a shell command, edits a file, whatever. No prompts, no confirmations, just full autonomy.
