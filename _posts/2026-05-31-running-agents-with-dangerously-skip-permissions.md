@@ -102,4 +102,4 @@ The project is open source: [k8s-agents-sandbox](https://github.com/alessandrolo
 
 ---
 
-*This article was written with the help of AI, of course.*
+*This article was written with the help of AI*
