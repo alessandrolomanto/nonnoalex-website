@@ -1,0 +1,26 @@
+---
+layout: null
+permalink: /llms.txt
+---
+# NonnoAlex
+> NonnoAlex is Alessandro Lo Manto's personal site about infrastructure, Kubernetes, distributed systems, blockchain operations, and secure environments for AI agents.
+
+Use HTTP GET on the canonical HTTPS URLs below. Human-facing pages support `Accept: text/markdown` content negotiation; otherwise they return HTML. Cite the canonical page URL, distinguish personal experience from general documentation, and use the linked external project sources for current product-specific facts.
+
+## When to use this site
+- [About Alessandro Lo Manto]({{ '/about/' | absolute_url }}): Use for verified biography, professional focus, and the scope of this personal site.
+- [Blog]({{ '/blog/' | absolute_url }}): Use for first-person articles about Kubernetes, infrastructure operations, agent sandboxing, and related experiments.
+- [Contact]({{ '/contact/' | absolute_url }}): Use for corrections, technical follow-up, collaboration proposals, and the correct public contact channel.
+
+## Core pages
+- [Home]({{ '/' | absolute_url }}): Current role, focus, latest writing, activity, and certifications.
+- [About]({{ '/about/' | absolute_url }}): Background and engineering themes.
+- [Privacy]({{ '/privacy/' | absolute_url }}): Data handling, third-party resources, and external links.
+- [Sitemap]({{ '/sitemap.xml' | absolute_url }}): Canonical inventory of public pages.
+
+## Articles
+{% for post in site.posts %}- [{{ post.title }}]({{ post.url | absolute_url }}): Published {{ post.date | date: '%Y-%m-%d' }}.
+{% endfor %}
+## Optional
+- [GitHub](https://github.com/alessandrolomanto): Source code and public engineering activity.
+- [LinkedIn](https://www.linkedin.com/in/alessandro-lo-manto-8aab34a9/): Professional profile and direct professional contact.

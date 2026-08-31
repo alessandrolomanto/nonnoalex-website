@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>{% if page.title %}{{ page.title }} | {{ site.author.name }}{% else %}{{ site.author.name }}{% endif %}</title>
+  <title>{% if page.url == '/' %}{{ site.title }} | {{ site.author.name }}{% elsif page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }} | {{ site.author.name }}{% endif %}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | truncate: 160 }}">
   
@@ -37,6 +37,10 @@
   <footer class="footer">
     <div class="container">
       <span>&copy; {{ site.time | date: '%Y' }} Alessandro Lo Manto</span>
+      <span class="footer-sep">&middot;</span>
+      <a href="/about/" class="nav-link">About</a>
+      <a href="/contact/" class="nav-link">Contact</a>
+      <a href="/privacy/" class="nav-link">Privacy</a>
     </div>
   </footer>
 </body>

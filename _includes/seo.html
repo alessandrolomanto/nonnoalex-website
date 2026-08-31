@@ -2,6 +2,8 @@
 {% assign og_desc = page.description | default: page.excerpt | default: site.description | strip_html | truncate: 200 %}
 
   <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <link rel="alternate" type="text/markdown" href="{{ page.url | absolute_url }}">
+  <link rel="describedby" type="text/plain" href="{{ '/llms.txt' | absolute_url }}">
 
   <!-- Open Graph -->
   <meta property="og:title" content="{{ page.title | default: site.title }}">
@@ -22,3 +24,41 @@
 {% endif %}
 
   <meta name="author" content="{{ site.author.name }}">
+{% if page.url == '/' %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "{{ '/' | absolute_url }}#person",
+        "name": "{{ site.author.name }}",
+        "alternateName": "NonnoAlex",
+        "description": {{ site.description | jsonify }},
+        "url": "{{ '/' | absolute_url }}",
+        "image": "{{ '/assets/images/personal-logo.png' | absolute_url }}",
+        "jobTitle": "Head of DevOps & Infrastructure",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Osmosis",
+          "url": "https://osmosis.zone"
+        },
+        "sameAs": [
+          "https://github.com/alessandrolomanto",
+          "https://www.linkedin.com/in/alessandro-lo-manto-8aab34a9/",
+          "https://twitter.com/alexlomanto"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "{{ '/' | absolute_url }}#website",
+        "name": "{{ site.title }}",
+        "alternateName": "Alessandro Lo Manto",
+        "url": "{{ '/' | absolute_url }}",
+        "description": {{ site.description | jsonify }},
+        "publisher": { "@id": "{{ '/' | absolute_url }}#person" }
+      }
+    ]
+  }
+  </script>
+{% endif %}

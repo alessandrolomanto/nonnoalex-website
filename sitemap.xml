@@ -1,16 +1,17 @@
+---
+layout: null
+permalink: /sitemap.xml
+---
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
-
-<url>
-  <loc>https://nonnoalex.dev/</loc>
-  <lastmod>2020-08-17T20:47:14+00:00</lastmod>
-</url>
-
-
-</urlset>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>{{ '/' | absolute_url }}</loc></url>
+  <url><loc>{{ '/about/' | absolute_url }}</loc></url>
+  <url><loc>{{ '/contact/' | absolute_url }}</loc></url>
+  <url><loc>{{ '/privacy/' | absolute_url }}</loc></url>
+  <url><loc>{{ '/blog/' | absolute_url }}</loc></url>
+  <url><loc>{{ '/blog/archive/' | absolute_url }}</loc></url>
+{% for post in site.posts %}  <url>
+    <loc>{{ post.url | absolute_url }}</loc>
+    <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
+  </url>
+{% endfor %}</urlset>
