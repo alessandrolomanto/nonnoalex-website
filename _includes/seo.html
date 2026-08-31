@@ -53,7 +53,10 @@
         "@type": "WebSite",
         "@id": "{{ '/' | absolute_url }}#website",
         "name": "{{ site.title }}",
-        "alternateName": "Alessandro Lo Manto",
+        "alternateName": [
+          "Alessandro Lo Manto",
+          "nonnoalex.dev"
+        ],
         "url": "{{ '/' | absolute_url }}",
         "description": {{ site.description | jsonify }},
         "publisher": { "@id": "{{ '/' | absolute_url }}#person" }

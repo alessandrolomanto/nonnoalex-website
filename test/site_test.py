@@ -81,6 +81,11 @@ assert person["name"] == "Alessandro Lo Manto"
 assert person["alternateName"] == "NonnoAlex"
 assert person["url"] == "https://nonnoalex.dev/"
 assert len(person["sameAs"]) == 3
+website = next(item for item in schema["@graph"] if item["@type"] == "WebSite")
+assert website["name"] == "NonnoAlex"
+assert website["alternateName"] == ["Alessandro Lo Manto", "nonnoalex.dev"]
+assert website["url"] == "https://nonnoalex.dev/"
+assert 'class="nav-name">NonnoAlex</a>' in homepage
 
 status, headers, llms = get("/llms.txt")
 assert status == 200 and headers.get_content_type() == "text/plain"
