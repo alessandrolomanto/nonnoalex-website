@@ -1,5 +1,7 @@
 ---
 layout: post
+workload: base
+slot: hello world
 title: Introduction
 ---
 

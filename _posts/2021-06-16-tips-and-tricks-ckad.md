@@ -1,5 +1,7 @@
 ---
 layout: post
+workload: base
+slot: certification
 title: Tips and Tricks CKAD Exam
 ---
 Kubernetes is the most famous open-source system for automating deployment, scaling, and management of containerized applications and the certification Certified Kubernetes Application Developer help you to have a complete environment for be able to design, build, configure and expose application created for cloud native.

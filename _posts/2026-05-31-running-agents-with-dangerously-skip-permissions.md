@@ -1,5 +1,7 @@
 ---
 layout: post
+workload: ai
+slot: agent sandbox
 title: Run Claude Code safely with dangerously-skip-permissions in k8s agents sandbox
 image: /assets/images/dangerously-skip-permissions.png
 ---

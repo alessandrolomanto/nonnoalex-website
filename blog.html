@@ -1,23 +1,31 @@
 ---
 layout: default
-title: Blog
+title: Notes
+description: Every note Alessandro Lo Manto has written about running Kubernetes, AI agents, blockchain and web infrastructure in production.
 permalink: /blog/
 ---
 
-<div class="blog-page">
-  <header class="page-header">
-    <h1>Blog</h1>
-    <p>Notes on running things in production.</p>
-  </header>
+<header class="wrap page-head">
+  <p class="label">Rack 01 · {{ site.posts | size }} units</p>
+  <h1>Notes</h1>
+  <p>Everything I have written down about running things in production, newest first.</p>
+</header>
 
-  <ul class="post-list">
-    {% for post in site.posts %}
-    <li>
-      <a href="{{ post.url | relative_url }}" class="post-row">
-        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y.%m.%d" }}</time>
-        <span>{{ post.title }}</span>
-      </a>
-    </li>
-    {% endfor %}
-  </ul>
+<div class="wrap">
+  <div class="rack notes-rack">
+    <ol class="units" aria-label="All notes">
+      {%- assign u = 42 -%}{%- assign i = 0 -%}
+      {%- for post in site.posts -%}
+        {%- assign year = post.date | date: "%Y" -%}
+        {%- if year != last_year -%}
+      <li class="blank"><span>{{ year }}</span></li>
+          {%- assign last_year = year -%}
+        {%- endif %}
+      {%- assign ulabel = "U" | append: u %}
+      <li>{% include unit.html post=post u=ulabel i=i %}</li>
+        {%- assign u = u | minus: 1 -%}{%- assign i = i | plus: 1 -%}
+      {%- endfor %}
+    </ol>
+  </div>
+  <p class="archive-link"><a href="/blog/archive/">The same notes by month</a></p>
 </div>

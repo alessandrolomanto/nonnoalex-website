@@ -1,0 +1,36 @@
+{%- comment -%}
+  One rack unit. Params: post (or title/url/workload/slot/meta for non-posts),
+  u (unit number label), size ("u2" for 2U), i (power-on order), tag (a|div), heading (h1/h2/none)
+{%- endcomment -%}
+{%- assign p = include.post -%}
+{%- if p -%}
+  {%- assign u_title = p.title -%}{%- assign u_url = p.url | relative_url -%}
+  {%- assign u_workload = p.workload | default: "base" -%}{%- assign u_slot = p.slot -%}
+  {%- assign now_s = site.time | date: "%s" | plus: 0 -%}{%- assign post_s = p.date | date: "%s" | plus: 0 -%}
+  {%- assign age = now_s | minus: post_s -%}
+  {%- if age < 31536000 -%}{%- assign u_live = true -%}{%- else -%}{%- assign u_live = false -%}{%- endif -%}
+{%- else -%}
+  {%- assign u_title = include.title -%}{%- assign u_url = include.url -%}{%- assign u_workload = include.workload -%}
+  {%- assign u_slot = include.slot -%}{%- assign u_live = include.live -%}
+{%- endif -%}
+{%- case u_workload -%}{%- when "ai" -%}{%- assign u_label = "AI" -%}{%- when "chain" -%}{%- assign u_label = "Chain" -%}{%- when "web" -%}{%- assign u_label = "Web" -%}{%- else -%}{%- assign u_label = "Base" -%}{%- endcase -%}
+{%- assign u_title = u_title | replace: "dangerously-skip-permissions", '<span class="nw">dangerously-skip-permissions</span>' -%}
+{%- assign tag = include.tag | default: "a" -%}
+<{{ tag }} class="unit {{ include.size }}{% if u_live %} live{% endif %}"{% if tag == "a" %} href="{{ u_url }}"{% endif %} style="--i:{{ include.i | default: 0 }};--r:{{ include.r | default: '2.4s' }}">
+  <span class="unit-ear" aria-hidden="true"><i></i><i></i></span>
+  <span class="unit-body">
+    {%- if include.back %}<a class="back" href="/blog/"><span aria-hidden="true">←</span> All notes</a>{% endif %}
+    <span class="unit-slot"><b>{{ u_label }}</b>{% if include.u %}<span class="unit-u">{{ include.u }}</span>{% endif %}{% if u_slot %}<span>{{ u_slot }}</span>{% endif %}{% if u_live %}<span class="sr-only">In service</span>{% endif %}</span>
+    {%- if include.heading == "h1" %}
+    <h1 class="unit-title">{{ u_title }}</h1>
+    {%- else %}
+    <span class="unit-title">{{ u_title }}</span>
+    {%- endif %}
+  </span>
+  <span class="unit-meta">
+    <span class="unit-vents" aria-hidden="true"></span>
+    {%- if p %}<time datetime="{{ p.date | date_to_xmlschema }}">{{ p.date | date: "%Y.%m.%d" }}</time>{% else %}<span>{{ include.meta }}</span>{% endif %}
+    {%- if include.extra %}<span>{{ include.extra }}</span>{% endif %}
+    <span class="led" aria-hidden="true"></span>
+  </span>
+</{{ tag }}>

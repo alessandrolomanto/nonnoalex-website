@@ -1,4 +1,4 @@
-{% assign og_image = page.image | default: '/assets/images/personal-logo.png' %}
+{% assign og_image = page.image | default: '/og.png' %}
 {% assign og_desc = page.description | default: page.excerpt | default: site.description | strip_html | truncate: 200 %}
 
   <link rel="canonical" href="{{ page.url | absolute_url }}">

@@ -1,5 +1,7 @@
 ---
 layout: post
+workload: web
+slot: this blog
 title: Overkilled Infrastructure for a Blog
 ---
 ![INFRA](/assets/images/infra-blog.png)

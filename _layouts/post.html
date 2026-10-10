@@ -1,31 +1,43 @@
 ---
 layout: default
 ---
-
-<div class="post-page">
-  <header class="post-header">
-    <a href="/blog" class="back-link">&larr; Blog</a>
-    <time datetime="{{ page.date | date_to_xmlschema }}" class="post-meta">{{ page.date | date: "%Y.%m.%d" }}</time>
-    <h1 class="post-title">{{ page.title }}</h1>
+{%- assign words = content | strip_html | number_of_words -%}
+{%- assign minutes = words | divided_by: 220 | plus: 1 -%}
+{%- assign read_label = minutes | append: " min read" -%}
+<article class="wrap">
+  {%- assign now_s = site.time | date: "%s" | plus: 0 -%}{%- assign post_s = page.date | date: "%s" | plus: 0 -%}{%- assign age = now_s | minus: post_s -%}
+  {%- case page.workload -%}{%- when "ai" -%}{%- assign w = "AI" -%}{%- when "chain" -%}{%- assign w = "Chain" -%}{%- when "web" -%}{%- assign w = "Web" -%}{%- else -%}{%- assign w = "Base" -%}{%- endcase -%}
+  <header class="post-plate rack">
+    <div class="unit{% if age < 31536000 %} live{% endif %}" style="--i:0">
+      <span class="unit-ear" aria-hidden="true"><i></i><i></i></span>
+      <div class="unit-body">
+        <div class="plate-top">
+          <a class="back" href="/blog/"><span aria-hidden="true">←</span> All notes</a>
+          <span class="unit-meta"><span class="unit-vents" aria-hidden="true"></span><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y.%m.%d" }}</time><span>{{ read_label }}</span><span class="led" aria-hidden="true"></span></span>
+        </div>
+        <p class="unit-slot"><b>{{ w }}</b>{% if page.slot %}<span>{{ page.slot }}</span>{% endif %}{% if age < 31536000 %}<span class="sr-only">In service</span>{% endif %}</p>
+        <h1 class="unit-title">{{ page.title | replace: "dangerously-skip-permissions", '<span class="nw">dangerously-<wbr>skip-permissions</span>' }}</h1>
+      </div>
+      <span class="unit-ear" aria-hidden="true"><i></i><i></i></span>
+    </div>
   </header>
 
-  <article class="post-content">
+  <div class="prose">
     {{ content }}
-  </article>
+  </div>
+</article>
 
-  {% if site.related_posts != empty %}
-  <aside class="related-posts">
-    <h3>More posts</h3>
-    <ul>
-      {% for post in site.related_posts limit:3 %}
-        <li>
-          <a href="{{ post.url | relative_url }}">
-            <span>{{ post.title }}</span>
-            <span class="post-date">{{ post.date | date: "%Y.%m.%d" }}</span>
-          </a>
-        </li>
-      {% endfor %}
-    </ul>
-  </aside>
-  {% endif %}
-</div>
+{% if site.related_posts != empty %}
+<aside class="wrap" aria-labelledby="next-title">
+  <div class="post-next">
+    <h2 id="next-title">Next in the rack</h2>
+    <div class="rack">
+      <ol class="units">
+        {%- for post in site.related_posts limit:3 %}
+        <li>{% include unit.html post=post i=forloop.index0 %}</li>
+        {%- endfor %}
+      </ol>
+    </div>
+  </div>
+</aside>
+{% endif %}

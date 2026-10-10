@@ -1,68 +1,102 @@
-<!-- Hero -->
-<section class="hero">
-  <div class="hero-content">
-    <p class="hero-role">Head of DevOps & Infrastructure</p>
-    <h1 class="hero-title">Alessandro Lo Manto</h1>
-    <div class="hero-bio">
-      <p>I run production for <a href="https://osmosis.zone" target="_blank" rel="noopener">Osmosis</a>. Most of my day is making sure distributed systems don't fall over at 3am.</p>
-      <p>Right now I keep thinking about what happens when AI agents need real infrastructure -- multi-tenant compute, state management, sandboxing. Nobody has good answers yet, especially when blockchain is in the mix. That's what I'm working on.</p>
+{%- assign now_s = site.time | date: "%s" | plus: 0 -%}
+{%- assign live_count = 1 -%}
+{%- for post in site.posts -%}{%- assign post_s = post.date | date: "%s" | plus: 0 -%}{%- assign age = now_s | minus: post_s -%}{%- if age < 31536000 -%}{%- assign live_count = live_count | plus: 1 -%}{%- endif -%}{%- endfor -%}
+{%- assign p0 = site.posts[0] -%}{%- assign p1 = site.posts[1] -%}{%- assign p2 = site.posts[2] -%}{%- assign p3 = site.posts[3] -%}
+
+<section class="wrap split hero" aria-labelledby="hero-title">
+  <div class="hero-intro">
+    <p class="label">Alessandro Lo Manto · Head of DevOps &amp; Infrastructure</p>
+    <h1 id="hero-title">I run the metal under AI, blockchain and the web</h1>
+    <p class="lede">Production for <a href="https://osmosis.zone" rel="noopener">Osmosis</a> by day. Notes on Kubernetes, agent sandboxes and validators: different workloads, the same disks, the same network, the same 3&nbsp;a.m. page.</p>
+    <a class="action" href="/blog/">Read all {{ site.posts | size }} notes</a>
+  </div>
+
+  <figure class="rack">
+    <figcaption class="rack-head"><span>Rack 01<span class="pdu-wide"> · nonnoalex.dev</span></span><span>42U · {{ live_count }} in service</span></figcaption>
+    <ol class="units" aria-label="Latest notes and current work">
+      <li>{% include unit.html post=p0 u="U42" size="u2" i="0" r="2.1s" %}</li>
+      <li>{% include unit.html post=p1 u="U41" i="1" r="3.3s" %}</li>
+      <li>{% include unit.html title="Osmosis production, the day job" url="https://osmosis.zone" workload="chain" slot="validator infra" meta="Live" live="1" i="2" r="1.3s" %}</li>
+      <li class="blank" aria-hidden="true"></li>
+      <li>{% include unit.html post=p2 u="U40" i="3" %}</li>
+      <li>{% include unit.html post=p3 u="U39" i="4" %}</li>
+    </ol>
+    <div class="pdu" aria-hidden="true"><span class="pdu-text">PDU A · same power<span class="pdu-wide"> · same network</span> · same pager</span><span class="pdu-v">230&nbsp;V</span></div>
+  </figure>
+</section>
+
+<section class="section" aria-labelledby="loads-title">
+  <div class="wrap">
+    <div class="section-head row">
+      <h2 id="loads-title">Same rack, different loads</h2>
+      <p>A GPU node, a validator and a web API look nothing alike in a slide deck. In the rack they are boxes that run out of disk, drop packets and page someone at 3&nbsp;a.m. The work is knowing where they differ.</p>
+    </div>
+    <div class="plate bay">
+      <span class="unit-ear" aria-hidden="true"><i></i><i></i></span>
+      <table class="loads">
+        <caption class="sr-only">What AI agents, validators and web services need from the same infrastructure</caption>
+        <thead>
+          <tr><td></td><th scope="col">AI agents</th><th scope="col">Validators</th><th scope="col">Web services</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Compute</th><td data-load="AI agents">GPUs, bursty, expensive to leave idle</td><td data-load="Validators">Dedicated nodes, steady, never preempted</td><td data-load="Web">Cheap replicas that scale out</td></tr>
+          <tr><th scope="row">State</th><td data-load="AI agents">Agent workspaces and model weights</td><td data-load="Validators">Chain state on local NVMe, snapshots to resync</td><td data-load="Web">A database somewhere else</td></tr>
+          <tr><th scope="row">Isolation</th><td data-load="AI agents">Untrusted code, no host credentials</td><td data-load="Validators">Signing keys behind sentry nodes</td><td data-load="Web">Namespaces and network policy</td></tr>
+          <tr class="pager"><th scope="row">At 3 a.m.</th><td data-load="AI agents">An agent loops and burns the budget</td><td data-load="Validators">The node falls behind and misses blocks</td><td data-load="Web">A certificate expires</td></tr>
+        </tbody>
+      </table>
+      <div class="loads-phone">
+        <section class="load-card" aria-label="AI agents"><h3>AI agents</h3><dl>
+          <div><dt>Compute</dt><dd>GPUs, bursty, expensive to leave idle</dd></div>
+          <div><dt>State</dt><dd>Agent workspaces and model weights</dd></div>
+          <div><dt>Isolation</dt><dd>Untrusted code, no host credentials</dd></div>
+          <div class="pager"><dt>At 3 a.m.</dt><dd>An agent loops and burns the budget</dd></div>
+        </dl></section>
+        <section class="load-card" aria-label="Validators"><h3>Validators</h3><dl>
+          <div><dt>Compute</dt><dd>Dedicated nodes, steady, never preempted</dd></div>
+          <div><dt>State</dt><dd>Chain state on local NVMe, snapshots to resync</dd></div>
+          <div><dt>Isolation</dt><dd>Signing keys behind sentry nodes</dd></div>
+          <div class="pager"><dt>At 3 a.m.</dt><dd>The node falls behind and misses blocks</dd></div>
+        </dl></section>
+        <section class="load-card" aria-label="Web services"><h3>Web services</h3><dl>
+          <div><dt>Compute</dt><dd>Cheap replicas that scale out</dd></div>
+          <div><dt>State</dt><dd>A database somewhere else</dd></div>
+          <div><dt>Isolation</dt><dd>Namespaces and network policy</dd></div>
+          <div class="pager"><dt>At 3 a.m.</dt><dd>A certificate expires</dd></div>
+        </dl></section>
+      </div>
+      <span class="unit-ear" aria-hidden="true"><i></i><i></i></span>
     </div>
   </div>
 </section>
 
-<!-- Activity -->
-<section class="section">
-  <div class="container">
-    <h2 class="section-heading">Activity</h2>
-    <div class="github-chart">
-      <img src="https://ghchart.rshah.org/00d4ff/alessandrolomanto" alt="GitHub contributions" loading="lazy" />
-    </div>
-  </div>
-</section>
-
-<!-- Writing -->
-<section class="section">
-  <div class="container">
-    <h2 class="section-heading">Writing</h2>
-    <ul class="post-list">
-      {% for post in site.posts limit:4 %}
-      <li>
-        <a href="{{ post.url }}" class="post-row">
-          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y.%m.%d" }}</time>
-          <span>{{ post.title }}</span>
-        </a>
-      </li>
-      {% endfor %}
-    </ul>
-    <a href="/blog" class="view-all">All posts &rarr;</a>
-  </div>
-</section>
-
-<!-- Certifications -->
-<section class="section">
-  <div class="container">
-    <h2 class="section-heading">Certifications</h2>
-    <div class="certs-row">
-      <a href="https://www.credly.com/badges/074fd766-99d4-4452-9b92-6729a633b10c" target="_blank" rel="noopener" class="cert">
-        <img src="/assets/images/cka_from_cncfsite__281_29.png" alt="CKA" loading="lazy" />
-        <span>CKA</span>
-      </a>
-      <a href="https://www.credly.com/badges/1887bd03-cd23-4fee-ba03-e3d81852878e" target="_blank" rel="noopener" class="cert">
-        <img src="/assets/images/ckad_from_cncfsite.png" alt="CKAD" loading="lazy" />
-        <span>CKAD</span>
-      </a>
-      <a href="https://www.credly.com/badges/7827e3d4-05a7-4770-9936-2e1739639b14" target="_blank" rel="noopener" class="cert">
-        <img src="/assets/images/kubernetes-security-specialist-logo2.png" alt="CKS" loading="lazy" />
-        <span>CKS</span>
-      </a>
-      <a href="https://www.credly.com/badges/0d4ad9c7-83e2-473b-8802-2d96ae5d8d87/public_url" target="_blank" rel="noopener" class="cert">
-        <img src="/assets/images/hashicorp-certified-terraform-associate.png" alt="Terraform Associate" loading="lazy" />
-        <span>Terraform</span>
-      </a>
-      <a href="https://www.credly.com/badges/c866e855-83a3-4d34-846b-6c93fe759ea5" target="_blank" rel="noopener" class="cert">
-        <img src="/assets/images/Oracle_Associates_Badge__1_.png" alt="OCA" loading="lazy" />
-        <span>OCA</span>
-      </a>
+<section class="section section-last" aria-label="Certifications and contact">
+  <div class="wrap">
+    <div class="plate rear">
+      <span class="unit-ear" aria-hidden="true"><i></i><i></i></span>
+      <div class="rear-bay">
+        <div class="rear-certs">
+          <h2 class="rear-title">Rated for</h2>
+          <p class="rear-line">Each badge links to its record on Credly.</p>
+          <ul class="certs">
+            <li><a href="https://www.credly.com/badges/074fd766-99d4-4452-9b92-6729a633b10c" rel="noopener"><img src="/assets/images/cka_from_cncfsite__281_29.png" alt="" width="72" height="72" loading="lazy"><span><strong>CKA</strong><span>Kubernetes Administrator</span></span></a></li>
+            <li><a href="https://www.credly.com/badges/1887bd03-cd23-4fee-ba03-e3d81852878e" rel="noopener"><img src="/assets/images/ckad_from_cncfsite.png" alt="" width="72" height="72" loading="lazy"><span><strong>CKAD</strong><span>Kubernetes Developer</span></span></a></li>
+            <li><a href="https://www.credly.com/badges/7827e3d4-05a7-4770-9936-2e1739639b14" rel="noopener"><img src="/assets/images/kubernetes-security-specialist-logo2.png" alt="" width="72" height="72" loading="lazy"><span><strong>CKS</strong><span>Kubernetes Security</span></span></a></li>
+            <li><a href="https://www.credly.com/badges/0d4ad9c7-83e2-473b-8802-2d96ae5d8d87/public_url" rel="noopener"><img src="/assets/images/hashicorp-certified-terraform-associate.png" alt="" width="72" height="72" loading="lazy"><span><strong>Terraform</strong><span>HashiCorp Associate</span></span></a></li>
+            <li><a href="https://www.credly.com/badges/c866e855-83a3-4d34-846b-6c93fe759ea5" rel="noopener"><img src="/assets/images/Oracle_Associates_Badge__1_.png" alt="" width="72" height="72" loading="lazy"><span><strong>OCA</strong><span>Oracle Certified Associate</span></span></a></li>
+          </ul>
+        </div>
+        <div class="rear-ports">
+          <h2 class="rear-title">Reach me</h2>
+          <p class="rear-line">No contact form. Pick the port that fits.</p>
+          <ul class="ports">
+            <li><a href="https://github.com/alessandrolomanto" rel="noopener me"><svg class="port" viewBox="0 0 26 20" aria-hidden="true"><path d="M1.5 1.5h23v12.5h-5.5v4.5h-12v-4.5h-5.5z"/><path d="M8.5 5v3.5M11.5 5v3.5M14.5 5v3.5M17.5 5v3.5"/></svg><strong>GitHub</strong><span class="port-use">Code, issues and corrections to this site</span></a></li>
+            <li><a href="https://www.linkedin.com/in/alessandro-lo-manto-8aab34a9/" rel="noopener me"><svg class="port" viewBox="0 0 26 20" aria-hidden="true"><path d="M1.5 1.5h23v12.5h-5.5v4.5h-12v-4.5h-5.5z"/><path d="M8.5 5v3.5M11.5 5v3.5M14.5 5v3.5M17.5 5v3.5"/></svg><strong>LinkedIn</strong><span class="port-use">Introductions, talks and collaboration</span></a></li>
+            <li><a href="https://twitter.com/alexlomanto" rel="noopener me"><svg class="port" viewBox="0 0 26 20" aria-hidden="true"><path d="M1.5 1.5h23v12.5h-5.5v4.5h-12v-4.5h-5.5z"/><path d="M8.5 5v3.5M11.5 5v3.5M14.5 5v3.5M17.5 5v3.5"/></svg><strong>X</strong><span class="port-use">@alexlomanto, short notes and new posts</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <span class="unit-ear" aria-hidden="true"><i></i><i></i></span>
     </div>
   </div>
 </section>

@@ -1,5 +1,7 @@
 ---
 layout: post
+workload: ai
+slot: operator
 title: Building My Own Kubernetes Operator for OpenClaw
 ---
 

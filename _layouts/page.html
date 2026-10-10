@@ -2,7 +2,12 @@
 layout: default
 ---
 
-<article class="page post-content">
-  <h1 class="page-title">{{ page.title }}</h1>
-  {{ content }}
+<header class="wrap page-head">
+  <p class="label">nonnoalex.dev</p>
+  <h1>{{ page.title }}</h1>
+</header>
+<article class="wrap">
+  <div class="prose page-prose">
+    {{ content }}
+  </div>
 </article>
